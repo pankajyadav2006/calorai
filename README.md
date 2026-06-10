@@ -128,19 +128,15 @@ Then:
 
 ## AI Tools Used
 
-### Tools
-
-| Tool               | Usage Scope                                                                 |
-|--------------------|-----------------------------------------------------------------------------|
-| TRAE               | Primary development tool (most heavy lifting)                               |
-| Cursor / Copilot   | Minor boilerplate (StyleSheet blocks, TypeScript interface stubs)           |
+| Tool | How it helped |
+|---|---|
+| **TRAE ** | Primary tool throughout. Handled component scaffolding, PanResponder gesture logic, the LinearGradient glassmorphism approach as a cross-platform BlurView replacement, scrollX.interpolate() for dynamic carousel height, forwardRef + useImperativeHandle for programmatic card swipes, and z-index stacking issues in the card stack |
+| **Cursor / Copilot (minor)** | Minor boilerplate (StyleSheet blocks, TypeScript interface stubs) |
 
 ### Where it actually mattered
 
-- Scaffolded components quickly to get the app structure up and running early
-- Implemented PanResponder gesture logic for the swipeable card stack
-- Set up LinearGradient glassmorphism as a BlurView workaround for Android
-- Got scrollX.interpolate() working right for dynamic carousel height in results
-- Used forwardRef + useImperativeHandle for programmatic swipes and undo
-- Helped debug z-index ordering issues in the card stack
+- BlurView Android fallback — surfaced the LinearGradient border pattern as a reliable substitute after identifying exactly why BlurView silently breaks in Expo Go on Android
+- Dynamic carousel height — the onLayout + scrollX.interpolate() pairing was an AI suggestion that replaced what would have been a trial-and-error minHeight approach
+- Gesture conflict diagnosis — pinpointed why react-native-gesture-handler was blocking onStartShouldSetPanResponder from ever firing, and pointed directly to native PanResponder as the fix
+
 
